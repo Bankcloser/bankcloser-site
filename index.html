@@ -81,6 +81,9 @@ html{scroll-behavior:smooth}
 .form-foot small{color:var(--muted);font-size:13px}
 .form-foot button{border:0;cursor:pointer;font-family:inherit;padding:15px 34px;font-size:16px}
 .hp{display:none}
+.coverage-map{margin:40px auto 0;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:0 20px 50px rgba(11,31,58,.08);padding:20px;text-align:center}
+.coverage-map img{display:block;width:100%;max-width:100%;height:auto;margin:0 auto;border-radius:8px}
+@media(max-width:560px){.coverage-map{margin-top:32px;padding:10px;border-radius:12px}.coverage-map img{border-radius:6px}}
 @media(max-width:700px){.form-grid{grid-template-columns:1fr}.form-card{padding:26px 20px}.form-foot button{width:100%}}
 </style>
 </head>
@@ -148,6 +151,9 @@ html{scroll-behavior:smooth}
     <div class="area"><b>Westchester</b><p>And the Hudson Valley</p></div>
     <div class="area"><b>Upstate New York</b><p>Statewide reach</p></div>
   </div>
+  <figure class="coverage-map">
+    <img src="assets/ny-coverage-map.png" srcset="assets/ny-coverage-map.png 1400w, assets/ny-coverage-map@2x.png 2400w" sizes="(max-width: 1160px) calc(100vw - 90px), 1070px" width="1400" height="803" loading="lazy" decoding="async" alt="Map of New York State counties highlighting Bank Closers service areas: New York City, Nassau, Suffolk, Westchester, Albany, Erie (Buffalo), Monroe (Rochester) and Onondaga (Syracuse)">
+  </figure>
 </div></section>
 
 <section id="schedule"><div class="wrap">
