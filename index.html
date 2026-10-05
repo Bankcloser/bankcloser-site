@@ -62,20 +62,40 @@ footer{background:#071629;color:#7f8ea3;font-size:14px;padding:28px 0}
 footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
 @media(max-width:900px){.hero h1{font-size:38px}.stats .grid,.cards,.areas{grid-template-columns:1fr 1fr}.split{grid-template-columns:1fr}.nav ul{display:none}h2{font-size:30px}}
 @media(max-width:560px){.stats .grid,.cards,.areas{grid-template-columns:1fr}}
+html{scroll-behavior:smooth}
+.sched-head{text-align:center;margin-bottom:44px}.sched-head .lead{margin:0 auto}
+.form-card{max-width:880px;margin:0 auto;background:#fff;border:1px solid var(--line);border-top:4px solid var(--gold);border-radius:14px;box-shadow:0 20px 50px rgba(11,31,58,.08);padding:40px}
+.form-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px 24px}
+.field{display:flex;flex-direction:column;gap:7px;min-width:0}
+.field.full{grid-column:1/-1}
+.field label{font-weight:600;font-size:14px;color:var(--navy)}
+.field label .req{color:var(--gold);margin-left:2px}
+.field label .opt{color:var(--muted);font-weight:400;font-size:13px;margin-left:4px}
+.field input,.field select,.field textarea{width:100%;font:inherit;font-size:15px;color:var(--ink);background:#fff;border:1.5px solid var(--line);border-radius:8px;padding:12px 14px;min-height:48px;transition:border-color .2s,box-shadow .2s;-webkit-appearance:none;appearance:none}
+.field select{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%230b1f3a' stroke-width='2' fill='none'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 14px center;padding-right:40px}
+.field input,.field select{height:48px;line-height:1.2}
+.field input::-webkit-date-and-time-value{text-align:left}
+.field textarea{min-height:130px;resize:vertical}
+.field input:focus,.field select:focus,.field textarea:focus{outline:none;border-color:var(--gold);box-shadow:0 0 0 3px rgba(201,162,74,.2)}
+.form-foot{display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap;margin-top:28px}
+.form-foot small{color:var(--muted);font-size:13px}
+.form-foot button{border:0;cursor:pointer;font-family:inherit;padding:15px 34px;font-size:16px}
+.hp{display:none}
+@media(max-width:700px){.form-grid{grid-template-columns:1fr}.form-card{padding:26px 20px}.form-foot button{width:100%}}
 </style>
 </head>
 <body>
 <header><div class="wrap nav">
   <a class="logo" href="#">Bank<span>Closers</span></a>
-  <ul><li><a href="#services">Services</a></li><li><a href="#why">Why Us</a></li><li><a href="#lenders">Lenders</a></li><li><a href="#coverage">Coverage</a></li></ul>
-  <a class="btn btn-gold" href="mailto:Info@bankcloser.com?subject=Schedule%20a%20Closing">Schedule a Closing</a>
+  <ul><li><a href="#services">Services</a></li><li><a href="#why">Why Us</a></li><li><a href="#lenders">Lenders</a></li><li><a href="#coverage">Coverage</a></li><li><a href="#schedule">Schedule</a></li></ul>
+  <a class="btn btn-gold" href="#schedule">Schedule a Closing</a>
 </div></header>
 
 <div class="hero"><div class="wrap">
   <div class="eyebrow">Mortgage Closings · New York</div>
   <h1>Flawless closings. Every signature, every time.</h1>
   <p>Highly trained and experienced notaries and signing agents who work as an extension of your team. On time, professional and knowledgeable.</p>
-  <div class="ctas"><a class="btn btn-gold" href="mailto:Info@bankcloser.com?subject=Schedule%20a%20Closing">Schedule a Closing</a><a class="btn btn-ghost" href="mailto:Info@bankcloser.com">Email Us</a></div>
+  <div class="ctas"><a class="btn btn-gold" href="#schedule">Schedule a Closing</a><a class="btn btn-ghost" href="mailto:Info@bankcloser.com">Email Us</a></div>
 </div></div>
 
 <div class="stats"><div class="wrap"><div class="grid">
@@ -130,10 +150,48 @@ footer .wrap{display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
   </div>
 </div></section>
 
+<section id="schedule"><div class="wrap">
+  <div class="sched-head">
+    <div class="eyebrow">Schedule a Closing</div>
+    <h2>Request a closing</h2>
+    <p class="lead">Tell us about your closing and the Bank Closers team will confirm availability shortly.</p>
+  </div>
+  <form class="form-card" action="https://formsubmit.co/Info@bankcloser.com" method="POST">
+    <input type="hidden" name="_subject" value="Closings Request from Website">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_next" value="https://www.bankcloser.com/thank-you.html">
+    <input type="text" name="_honey" class="hp" style="display:none" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <div class="form-grid">
+      <div class="field"><label for="f-name">Name<span class="req">*</span></label><input id="f-name" type="text" name="Name" autocomplete="name" required></div>
+      <div class="field"><label for="f-company">Company<span class="opt">(optional)</span></label><input id="f-company" type="text" name="Company" autocomplete="organization"></div>
+      <div class="field"><label for="f-email">Email<span class="req">*</span></label><input id="f-email" type="email" name="email" autocomplete="email" required></div>
+      <div class="field"><label for="f-phone">Phone<span class="opt">(optional)</span></label><input id="f-phone" type="tel" name="Phone" autocomplete="tel"></div>
+      <div class="field"><label for="f-type">Type of closing<span class="req">*</span></label>
+        <select id="f-type" name="Type of closing" required>
+          <option value="" disabled selected>Select a type</option>
+          <option>Refinance</option>
+          <option>HELOC</option>
+          <option>Purchase</option>
+          <option>Deed signing</option>
+          <option>Post closing</option>
+          <option>Seller documents</option>
+        </select></div>
+      <div class="field"><label for="f-date">Date<span class="req">*</span></label><input id="f-date" type="date" name="Date" required></div>
+      <div class="field"><label for="f-time">Time<span class="opt">(optional)</span></label><input id="f-time" type="time" name="Time"></div>
+      <div class="field"><label for="f-location">Location<span class="req">*</span></label><input id="f-location" type="text" name="Location" placeholder="Address or city" autocomplete="street-address" required></div>
+      <div class="field full"><label for="f-details">Additional details<span class="opt">(optional)</span></label><textarea id="f-details" name="Additional details" rows="5" placeholder="Number of signers, lender, special instructions, etc."></textarea></div>
+    </div>
+    <div class="form-foot">
+      <small><span style="color:var(--gold)">*</span> Required fields</small>
+      <button type="submit" class="btn btn-gold">Request Closing</button>
+    </div>
+  </form>
+</div></section>
+
 <section class="cta"><div class="wrap">
   <h2>Ready for a closing that goes right?</h2>
   <p class="lead">Reach out to the team at Bank Closers today to book a reputable notary or signing agent.</p>
-  <a class="btn btn-gold" href="mailto:Info@bankcloser.com?subject=Schedule%20a%20Closing">Schedule a Closing</a>
+  <a class="btn btn-gold" href="#schedule">Schedule a Closing</a>
   <div class="contact">
     <div><b>Email</b>Info@bankcloser.com</div>
     <div><b>Office</b>405 Lexington Avenue, New York, NY 10174</div>
