@@ -93,6 +93,13 @@ html{scroll-behavior:smooth}
 .intro{max-width:820px;margin:0 auto;text-align:center}.intro .lead{margin:0 auto;font-size:19px}
 @media(max-width:560px){.row{padding:18px 20px}.row .amt{font-size:22px}}
 .disclaimer{max-width:880px;margin:24px auto 0;color:var(--muted);font-size:14px;font-style:italic;text-align:center}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:10px;margin-left:8px}
+.menu-btn span{display:block;height:2px;background:var(--navy);margin:5px 0;border-radius:2px}
+@media(max-width:900px){.menu-btn{display:block}.nav .btn{padding:10px 14px;font-size:14px}
+.nav ul.open{display:flex;flex-direction:column;gap:0;position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 30px rgba(11,31,58,.1);padding:8px 24px}
+.nav ul.open li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--navy)}
+.nav ul.open li:last-child a{border:0}}
+@media(max-width:400px){.nav .btn{display:none}}
 </style>
 </head>
 <body>
@@ -100,6 +107,7 @@ html{scroll-behavior:smooth}
   <a class="logo" href="/">Bank<span>Closers</span></a>
   <ul><li><a href="/">Home</a></li><li><a href="#fees">Fees</a></li><li><a href="#schedule">Schedule</a></li></ul>
   <a class="btn btn-gold" href="#schedule">Book a Notary</a>
+  <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></header>
 
 <div class="hero"><div class="wrap">
@@ -164,4 +172,5 @@ html{scroll-behavior:smooth}
 </div></section>
 
 <footer><div class="wrap"><span>© 2026 Bank Closers. All rights reserved.</span><span>New York, NY</span></div></footer>
+<script>(function(){var b=document.querySelector(".menu-btn"),u=document.querySelector(".nav ul");b.addEventListener("click",function(){var o=u.classList.toggle("open");b.setAttribute("aria-expanded",o)});u.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){u.classList.remove("open");b.setAttribute("aria-expanded",false)})})})();</script>
 </body></html>

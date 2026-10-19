@@ -85,6 +85,13 @@ html{scroll-behavior:smooth}
 .coverage-map img{display:block;width:100%;max-width:100%;height:auto;margin:0 auto;border-radius:8px}
 @media(max-width:560px){.coverage-map{margin-top:32px;padding:10px;border-radius:12px}.coverage-map img{border-radius:6px}}
 @media(max-width:700px){.form-grid{grid-template-columns:1fr}.form-card{padding:26px 20px}.form-foot button{width:100%}}
+.menu-btn{display:none;background:none;border:0;cursor:pointer;width:44px;height:44px;padding:10px;margin-left:8px}
+.menu-btn span{display:block;height:2px;background:var(--navy);margin:5px 0;border-radius:2px}
+@media(max-width:900px){.menu-btn{display:block}.nav .btn{padding:10px 14px;font-size:14px}
+.nav ul.open{display:flex;flex-direction:column;gap:0;position:absolute;top:72px;left:0;right:0;background:#fff;border-bottom:1px solid var(--line);box-shadow:0 12px 30px rgba(11,31,58,.1);padding:8px 24px}
+.nav ul.open li a{display:block;padding:14px 0;border-bottom:1px solid var(--line);font-size:16px;color:var(--navy)}
+.nav ul.open li:last-child a{border:0}}
+@media(max-width:400px){.nav .btn{display:none}}
 </style>
 </head>
 <body>
@@ -92,6 +99,7 @@ html{scroll-behavior:smooth}
   <a class="logo" href="#">Bank<span>Closers</span></a>
   <ul><li><a href="#services">Services</a></li><li><a href="#why">Why Us</a></li><li><a href="#lenders">Who We Serve</a></li><li><a href="#coverage">Coverage</a></li><li><a href="/mobile-notary.html">Mobile Notary</a></li><li><a href="#schedule">Schedule</a></li></ul>
   <a class="btn btn-gold" href="#schedule">Schedule a Closing</a>
+  <button class="menu-btn" aria-label="Menu" aria-expanded="false"><span></span><span></span><span></span></button>
 </div></header>
 
 <div class="hero"><div class="wrap">
@@ -210,4 +218,5 @@ html{scroll-behavior:smooth}
 </div></section>
 
 <footer><div class="wrap"><span>© 2026 Bank Closers. All rights reserved.</span><span>New York, NY</span></div></footer>
+<script>(function(){var b=document.querySelector(".menu-btn"),u=document.querySelector(".nav ul");b.addEventListener("click",function(){var o=u.classList.toggle("open");b.setAttribute("aria-expanded",o)});u.querySelectorAll("a").forEach(function(a){a.addEventListener("click",function(){u.classList.remove("open");b.setAttribute("aria-expanded",false)})})})();</script>
 </body></html>
